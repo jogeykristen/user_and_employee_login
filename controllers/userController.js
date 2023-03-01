@@ -142,7 +142,7 @@ module.exports.employeeUpdate = async(req,res)=>{
 
 module.exports.employeeGet = async(req,res)=>{
     const filter = {};
-    const all = await Employee.find(filter);
+    const all = await Employee.find(filter).sort({emp_id:1});
     console.log("all = ",all)
     
         
