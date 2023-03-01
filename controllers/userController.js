@@ -153,3 +153,20 @@ module.exports.employeeGet = async(req,res)=>{
     
     
 }
+
+module.exports.searchEmployee = async(req,res)=>{
+    const employee = await Employee.findOne({
+        emp_name: req.params.emp_name
+    })
+    if(employee){
+        return res.status(200).send({
+            message:"Success",
+            data:employee
+        })
+    }else{
+        return res.status(400).send({
+            message:"No users found",
+             
+        })
+    }
+}
